@@ -69,7 +69,10 @@
                 opacity: 0;
                 transform: translate(0, 0);
             }
-            50% {
+            30% {
+                opacity: 1;
+            }
+            70% {
                 opacity: 1;
             }
             100% {
@@ -122,11 +125,11 @@
                 
                 sparkle.style.left = "50%";
                 sparkle.style.top = "50%";
-                sparkle.style.width = (3 + Math.random() * 4) + "px";
+                sparkle.style.width = (6 + Math.random() * 8) + "px";
                 sparkle.style.height = sparkle.style.width;
                 sparkle.style.backgroundColor = "#FFD700";
                 sparkle.style.borderRadius = "50%";
-                sparkle.style.boxShadow = "0 0 8px #FFD700";
+                sparkle.style.boxShadow = "0 0 12px #FFD700, 0 0 20px #FFA500";
                 
                 // Random animation duration
                 const duration = 0.6 + Math.random() * 0.4;
