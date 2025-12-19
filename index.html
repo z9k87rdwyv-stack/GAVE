@@ -79,11 +79,11 @@
         }
 
         .fade-out {
-            animation: fadeOut 0.8s ease-out forwards;
+            animation: fadeOut 2.5s ease-out forwards;
         }
 
         .pop-in {
-            animation: fadeOut 0.8s ease-out reverse forwards;
+            animation: fadeOut 2.5s ease-out reverse forwards;
         }
 
         @media (min-width: 768px) {
@@ -160,8 +160,8 @@
                 // Remove animation class after it completes
                 setTimeout(function() {
                     img.classList.remove("pop-in");
-                }, 800);
-            }, 400); // Change at midpoint of fade
+                }, 2500);
+            }, 1250); // Change at midpoint of fade (2.5s total)
         });
     </script>
 
