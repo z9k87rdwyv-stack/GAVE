@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Gave til min søde skat</title>
+    <style>
+        img {
+            width: 300px; /* valgfritt */
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Første bilde vises automatisk -->
+    <img 
+        id="giftImage"
+        src="gift2.gif"
+        alt="Gave"
+    >
+
+    <script>
+        const img = document.getElementById("giftImage");
+
+        img.addEventListener("click", function () {
+            img.classList.add("fade-in");
+            // Bytt bilde etter en kort forsinkelse, så animasjonen rekker å vises
+            setTimeout(function() {
+                img.src = "GAVE.png";
+                img.classList.remove("fade-in");
+            }, 1000); // 1 sekund forsinkelse
+        });
+    </script>
+
+</body>
+</html>
