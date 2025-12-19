@@ -21,15 +21,44 @@
             height: auto;
             cursor: pointer;
             object-fit: contain;
+            transition: all 0.3s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes flipAndScale {
+            0% {
+                opacity: 1;
+                transform: scale(1) rotateY(0deg);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.05) rotateY(90deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.1) rotateY(180deg);
+            }
         }
 
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotateY(-180deg);
+            }
+            50% {
+                transform: scale(1.1) rotateY(-90deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotateY(0deg);
+            }
+        }
+
+        .flip-out {
+            animation: flipAndScale 0.6s ease-in-out forwards;
+        }
+
+        .pop-in {
+            animation: popIn 0.6s ease-in-out forwards;
         }
 
         @media (min-width: 768px) {
@@ -53,12 +82,22 @@
         const img = document.getElementById("giftImage");
 
         img.addEventListener("click", function () {
-            img.classList.add("fade-in");
-            // Bytt bilde etter en kort forsinkelse, så animasjonen rekker å vises
+            // Don't allow clicking while animation is in progress
+            if (img.classList.contains("flip-out")) return;
+            
+            img.classList.add("flip-out");
+            
+            // Change image halfway through the animation
             setTimeout(function() {
                 img.src = "gave2.PNG";
-                img.classList.remove("fade-in");
-            }, 1000); // 1 sekund forsinkelse
+                img.classList.remove("flip-out");
+                img.classList.add("pop-in");
+                
+                // Remove pop-in class after animation completes
+                setTimeout(function() {
+                    img.classList.remove("pop-in");
+                }, 600);
+            }, 300); // Change at midpoint of animation
         });
     </script>
 
