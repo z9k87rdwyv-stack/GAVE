@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gave til min søde skat</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        img {
+            width: 90vw;
+            max-width: 500px;
+            height: auto;
+            cursor: pointer;
+            object-fit: contain;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @media (min-width: 768px) {
+            img {
+                width: 70vw;
+                max-width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Første bilde vises automatisk -->
+    <img 
+        id="giftImage"
+        src="gift2.gif"
+        alt="Gave"
+    >
+
+    <script>
+        const img = document.getElementById("giftImage");
+
+        img.addEventListener("click", function () {
+            img.classList.add("fade-in");
+            // Bytt bilde etter en kort forsinkelse, så animasjonen rekker å vises
+            setTimeout(function() {
+                img.src = "GAVE.png";
+                img.classList.remove("fade-in");
+            }, 1000); // 1 sekund forsinkelse
+        });
+    </script>
+
+</body>
+</html>
